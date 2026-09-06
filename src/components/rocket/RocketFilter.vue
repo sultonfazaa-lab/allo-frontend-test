@@ -147,8 +147,6 @@ function resetFilters() {
     </div>
 
 
-    <!-- LAUNCH COST -->
-
     <div class="filter-group">
 
       <label for="launch-cost">
@@ -195,9 +193,6 @@ function resetFilters() {
       </select>
 
     </div>
-
-
-    <!-- FIRST FLIGHT -->
 
     <div class="filter-group">
 

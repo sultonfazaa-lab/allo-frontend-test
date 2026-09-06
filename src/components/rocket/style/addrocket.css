@@ -252,7 +252,7 @@ textarea {
 
 @media (max-width: 650px) {
   .overlay {
-    padding: 100px 40px 100px 50px;
+    padding: 70px 40px 10px 50px;
   }
 
   .modal {

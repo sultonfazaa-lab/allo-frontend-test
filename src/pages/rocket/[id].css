@@ -175,27 +175,25 @@ dd {
 }
 
 
-@media (max-width: 800px) {
-  .rocket-detail {
-    grid-template-columns: 1fr;
 
-    gap: 30px;
-  }
-
-  .detail-image {
-    height: 350px;
-    min-height: 0;
-  }
-}
 
 
 @media (max-width: 640px) {
   .page {
     width: calc(100% - 24px);
 
-    padding: 25px 0 60px;
+    padding: 50px 1px 10px 10px;
   }
 
+  .rocket-detail {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 20px;
+}
   .back-link {
     margin-bottom: 22px;
 

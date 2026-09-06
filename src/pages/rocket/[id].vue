@@ -8,6 +8,8 @@ import {
   useRoute,
 } from 'vue-router'
 
+import SafeImage
+  from '@/components/common/SafeImage.vue'
 
 import {
   getRocketById,
@@ -174,31 +176,11 @@ onMounted(() => {
 
       <div class="rocket-image">
 
-        <img
-          v-if="
-            rocket.image_url
-          "
-
-          :src="
-            rocket.image_url
-          "
-
-          :alt="
-            rocket.full_name ||
-            'Rocket'
-          "
-        >
-
-
-        <div
-          v-else
-          class="image-placeholder"
-        >
-          Image not available
-        </div>
-
+      <SafeImage
+    :src="rocket.image_url"
+    :alt="rocket.full_name || 'Rocket image'"
+        />
       </div>
-
 
       <div class="rocket-information">
 
