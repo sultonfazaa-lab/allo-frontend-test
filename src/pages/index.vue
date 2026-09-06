@@ -24,6 +24,13 @@ import RocketGrid
 import AddRocketModal
   from '@/components/rocket/AddRocketModal.vue'
 
+import {
+  filterRockets,
+} from'@/utils/rocketFilter'
+
+import type {
+  RocketFilters,
+ } from '@/types/rocketFilter'
 
 import {
   useRocketStore,
@@ -38,15 +45,17 @@ import type {
 const {
   state,
   rockets,
-
   loadRockets,
   addRocket,
 } = useRocketStore()
 
 
-const filter =
-  ref('')
-
+const filters =
+  ref<RocketFilters>({
+    search: '',
+    launchCost: 'all',
+    firstFlight: 'all',
+  })
 
 const modalOpen =
   ref(false)
@@ -54,38 +63,11 @@ const modalOpen =
 
 const filteredRockets =
   computed(() => {
-    const keyword =
-      filter.value
-        .trim()
-        .toLowerCase()
-
-
-    if (!keyword) {
-      return rockets.value
-    }
-
-
-    return rockets.value.filter(
-      rocket => {
-        const name =
-          rocket.full_name
-            ?.toLowerCase()
-          ?? ''
-
-        const description =
-          rocket.description
-            ?.toLowerCase()
-          ?? ''
-
-
-        return (
-          name.includes(keyword) ||
-          description.includes(keyword)
-        )
-      },
+    return filterRockets(
+      rockets.value,
+      filters.value,
     )
   })
-
 
 function handleAddRocket(
   rocket: NewRocketInput,
@@ -134,7 +116,7 @@ onMounted(() => {
     <section class="toolbar">
 
       <RocketFilter
-        v-model="filter"
+        v-model="filters"
       />
 
     </section>

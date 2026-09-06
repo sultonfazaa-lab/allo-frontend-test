@@ -267,6 +267,7 @@ function submit() {
             placeholder="https://example.com/rocket.jpg">
 
           <input
+            class="pilih-file"
             v-else
             type="file"
             accept="image/*"

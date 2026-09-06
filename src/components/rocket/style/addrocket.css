@@ -130,9 +130,21 @@ textarea {
   resize: vertical;
 }
 
-
 .image-field {
   min-width: 0;
+}
+
+.pilih-file::file-selector-button {
+  background-color: #c6cac6;
+  color: rgb(24, 23, 23);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom-file-input::file-selector-button:hover {
+  background-color: #45a049;
 }
 
 
@@ -240,11 +252,11 @@ textarea {
 
 @media (max-width: 650px) {
   .overlay {
-    padding: 10px;
+    padding: 100px 40px 100px 50px;
   }
 
   .modal {
-    width: 100%;
+    width: 80%;
 
     max-height:
       calc(100vh - 20px);
